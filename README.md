@@ -1,6 +1,6 @@
-# JAXBT: JAX Backtesting framework
+# JAXBT: JAX Backtesting framework [![codecov](https://codecov.io/gh/richwomanbtc/jaxbt/branch/main/graph/badge.svg?token=P6VA2KK1RX)](https://codecov.io/gh/richwomanbtc/jaxbt)
 
-Differentiable backtesting with JAX.
+WIP: Differentiable backtesting with JAX.
 
 ## Installation
 
