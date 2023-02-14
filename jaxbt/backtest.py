@@ -302,7 +302,7 @@ def backtest_from_signal(
 ) -> BacktestResult:
     @jax.jit
     def order_func(bt: Backtest, i) -> Tuple[int, float, float]:
-        return signal[i], 1.0, jnp.nan
+        return int(signal[i]), 1.0, jnp.nan
 
     return backtest_from_order_func(price, order_func)
 
