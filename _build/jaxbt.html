@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jaxbt package &mdash; JAXBT  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            JAXBT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">jaxbt package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-jaxbt.backtest">jaxbt.backtest module</a><ul>
+<li><a class="reference internal" href="#jaxbt.backtest.ActionIndex"><code class="docutils literal notranslate"><span class="pre">ActionIndex</span></code></a><ul>
+<li><a class="reference internal" href="#jaxbt.backtest.ActionIndex.ORDER_TYPE"><code class="docutils literal notranslate"><span class="pre">ActionIndex.ORDER_TYPE</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.ActionIndex.PRICE"><code class="docutils literal notranslate"><span class="pre">ActionIndex.PRICE</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.ActionIndex.SIZE"><code class="docutils literal notranslate"><span class="pre">ActionIndex.SIZE</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#jaxbt.backtest.Backtest"><code class="docutils literal notranslate"><span class="pre">Backtest</span></code></a><ul>
+<li><a class="reference internal" href="#jaxbt.backtest.Backtest.tree_flatten"><code class="docutils literal notranslate"><span class="pre">Backtest.tree_flatten()</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.Backtest.tree_unflatten"><code class="docutils literal notranslate"><span class="pre">Backtest.tree_unflatten()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#jaxbt.backtest.BacktestResult"><code class="docutils literal notranslate"><span class="pre">BacktestResult</span></code></a><ul>
+<li><a class="reference internal" href="#jaxbt.backtest.BacktestResult.pl"><code class="docutils literal notranslate"><span class="pre">BacktestResult.pl</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.BacktestResult.position"><code class="docutils literal notranslate"><span class="pre">BacktestResult.position</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.BacktestResult.timestamp"><code class="docutils literal notranslate"><span class="pre">BacktestResult.timestamp</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#jaxbt.backtest.OHLC"><code class="docutils literal notranslate"><span class="pre">OHLC</span></code></a><ul>
+<li><a class="reference internal" href="#jaxbt.backtest.OHLC.close"><code class="docutils literal notranslate"><span class="pre">OHLC.close</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.OHLC.from_ndarray"><code class="docutils literal notranslate"><span class="pre">OHLC.from_ndarray()</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.OHLC.from_pandas"><code class="docutils literal notranslate"><span class="pre">OHLC.from_pandas()</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.OHLC.high"><code class="docutils literal notranslate"><span class="pre">OHLC.high</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.OHLC.low"><code class="docutils literal notranslate"><span class="pre">OHLC.low</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.OHLC.open"><code class="docutils literal notranslate"><span class="pre">OHLC.open</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.OHLC.timestamp"><code class="docutils literal notranslate"><span class="pre">OHLC.timestamp</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#jaxbt.backtest.OHLCIndex"><code class="docutils literal notranslate"><span class="pre">OHLCIndex</span></code></a><ul>
+<li><a class="reference internal" href="#jaxbt.backtest.OHLCIndex.CLOSE"><code class="docutils literal notranslate"><span class="pre">OHLCIndex.CLOSE</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.OHLCIndex.HIGH"><code class="docutils literal notranslate"><span class="pre">OHLCIndex.HIGH</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.OHLCIndex.LOW"><code class="docutils literal notranslate"><span class="pre">OHLCIndex.LOW</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.OHLCIndex.OPEN"><code class="docutils literal notranslate"><span class="pre">OHLCIndex.OPEN</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.OHLCIndex.TIMESTAMP"><code class="docutils literal notranslate"><span class="pre">OHLCIndex.TIMESTAMP</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#jaxbt.backtest.OrderType"><code class="docutils literal notranslate"><span class="pre">OrderType</span></code></a><ul>
+<li><a class="reference internal" href="#jaxbt.backtest.OrderType.LIMIT_BUY"><code class="docutils literal notranslate"><span class="pre">OrderType.LIMIT_BUY</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.OrderType.LIMIT_SELL"><code class="docutils literal notranslate"><span class="pre">OrderType.LIMIT_SELL</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.OrderType.MARKET_BUY"><code class="docutils literal notranslate"><span class="pre">OrderType.MARKET_BUY</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.OrderType.MARKET_SELL"><code class="docutils literal notranslate"><span class="pre">OrderType.MARKET_SELL</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#jaxbt.backtest.backtest_from_order_func"><code class="docutils literal notranslate"><span class="pre">backtest_from_order_func()</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.backtest_from_signal"><code class="docutils literal notranslate"><span class="pre">backtest_from_signal()</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.initialize_array"><code class="docutils literal notranslate"><span class="pre">initialize_array()</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.limit_buy"><code class="docutils literal notranslate"><span class="pre">limit_buy()</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.limit_sell"><code class="docutils literal notranslate"><span class="pre">limit_sell()</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.market_buy"><code class="docutils literal notranslate"><span class="pre">market_buy()</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.market_sell"><code class="docutils literal notranslate"><span class="pre">market_sell()</span></code></a></li>
+<li><a class="reference internal" href="#jaxbt.backtest.summary"><code class="docutils literal notranslate"><span class="pre">summary()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-jaxbt">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">JAXBT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">jaxbt package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/jaxbt.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="jaxbt-package">
+<h1>jaxbt package<a class="headerlink" href="#jaxbt-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-jaxbt.backtest">
+<span id="jaxbt-backtest-module"></span><h2>jaxbt.backtest module<a class="headerlink" href="#module-jaxbt.backtest" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="jaxbt.backtest.ActionIndex">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jaxbt.backtest.</span></span><span class="sig-name descname"><span class="pre">ActionIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxbt.backtest.ActionIndex" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.ActionIndex.ORDER_TYPE">
+<span class="sig-name descname"><span class="pre">ORDER_TYPE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#jaxbt.backtest.ActionIndex.ORDER_TYPE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.ActionIndex.PRICE">
+<span class="sig-name descname"><span class="pre">PRICE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#jaxbt.backtest.ActionIndex.PRICE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.ActionIndex.SIZE">
+<span class="sig-name descname"><span class="pre">SIZE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#jaxbt.backtest.ActionIndex.SIZE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jaxbt.backtest.Backtest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jaxbt.backtest.</span></span><span class="sig-name descname"><span class="pre">Backtest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">open</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">close</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">posision</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxbt.backtest.Backtest" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="jaxbt.backtest.Backtest.tree_flatten">
+<span class="sig-name descname"><span class="pre">tree_flatten</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jaxbt.backtest.Backtest.tree_flatten" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jaxbt.backtest.Backtest.tree_unflatten">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tree_unflatten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aux_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxbt.backtest.Backtest.tree_unflatten" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jaxbt.backtest.BacktestResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jaxbt.backtest.</span></span><span class="sig-name descname"><span class="pre">BacktestResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxbt.backtest.BacktestResult" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.BacktestResult.pl">
+<span class="sig-name descname"><span class="pre">pl</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Array</span></em><a class="headerlink" href="#jaxbt.backtest.BacktestResult.pl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.BacktestResult.position">
+<span class="sig-name descname"><span class="pre">position</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Array</span></em><a class="headerlink" href="#jaxbt.backtest.BacktestResult.position" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.BacktestResult.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Array</span></em><a class="headerlink" href="#jaxbt.backtest.BacktestResult.timestamp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jaxbt.backtest.OHLC">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jaxbt.backtest.</span></span><span class="sig-name descname"><span class="pre">OHLC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">open</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">close</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">jax.Array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxbt.backtest.OHLC" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.OHLC.close">
+<span class="sig-name descname"><span class="pre">close</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Array</span></em><a class="headerlink" href="#jaxbt.backtest.OHLC.close" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jaxbt.backtest.OHLC.from_ndarray">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_ndarray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Array</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jaxbt.backtest.OHLC" title="jaxbt.backtest.OHLC"><span class="pre">OHLC</span></a></span></span><a class="headerlink" href="#jaxbt.backtest.OHLC.from_ndarray" title="Permalink to this definition"></a></dt>
+<dd><p>Create OHLC from numpy.ndarray or jax.Array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>arr</strong> (<em>Union</em><em>[</em><em>np.ndarray</em><em>, </em><em>jax.Array</em><em>]</em>) – (n, 5) array. 5 columns are required.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>OHLC data class.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#jaxbt.backtest.OHLC" title="jaxbt.backtest.OHLC">OHLC</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="jaxbt.backtest.OHLC.from_pandas">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_pandas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jaxbt.backtest.OHLC" title="jaxbt.backtest.OHLC"><span class="pre">OHLC</span></a></span></span><a class="headerlink" href="#jaxbt.backtest.OHLC.from_pandas" title="Permalink to this definition"></a></dt>
+<dd><p>Create OHLC from pandas.DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<em>pd.DataFrame</em>) – “timestamp”, “open”, “high”, “low”, “close” columns are required.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>OHLC data class.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#jaxbt.backtest.OHLC" title="jaxbt.backtest.OHLC">OHLC</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.OHLC.high">
+<span class="sig-name descname"><span class="pre">high</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Array</span></em><a class="headerlink" href="#jaxbt.backtest.OHLC.high" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.OHLC.low">
+<span class="sig-name descname"><span class="pre">low</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Array</span></em><a class="headerlink" href="#jaxbt.backtest.OHLC.low" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.OHLC.open">
+<span class="sig-name descname"><span class="pre">open</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Array</span></em><a class="headerlink" href="#jaxbt.backtest.OHLC.open" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.OHLC.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Array</span></em><a class="headerlink" href="#jaxbt.backtest.OHLC.timestamp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jaxbt.backtest.OHLCIndex">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jaxbt.backtest.</span></span><span class="sig-name descname"><span class="pre">OHLCIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxbt.backtest.OHLCIndex" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.OHLCIndex.CLOSE">
+<span class="sig-name descname"><span class="pre">CLOSE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#jaxbt.backtest.OHLCIndex.CLOSE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.OHLCIndex.HIGH">
+<span class="sig-name descname"><span class="pre">HIGH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#jaxbt.backtest.OHLCIndex.HIGH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.OHLCIndex.LOW">
+<span class="sig-name descname"><span class="pre">LOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#jaxbt.backtest.OHLCIndex.LOW" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.OHLCIndex.OPEN">
+<span class="sig-name descname"><span class="pre">OPEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#jaxbt.backtest.OHLCIndex.OPEN" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.OHLCIndex.TIMESTAMP">
+<span class="sig-name descname"><span class="pre">TIMESTAMP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#jaxbt.backtest.OHLCIndex.TIMESTAMP" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="jaxbt.backtest.OrderType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">jaxbt.backtest.</span></span><span class="sig-name descname"><span class="pre">OrderType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxbt.backtest.OrderType" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.OrderType.LIMIT_BUY">
+<span class="sig-name descname"><span class="pre">LIMIT_BUY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#jaxbt.backtest.OrderType.LIMIT_BUY" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.OrderType.LIMIT_SELL">
+<span class="sig-name descname"><span class="pre">LIMIT_SELL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#jaxbt.backtest.OrderType.LIMIT_SELL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.OrderType.MARKET_BUY">
+<span class="sig-name descname"><span class="pre">MARKET_BUY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#jaxbt.backtest.OrderType.MARKET_BUY" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="jaxbt.backtest.OrderType.MARKET_SELL">
+<span class="sig-name descname"><span class="pre">MARKET_SELL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#jaxbt.backtest.OrderType.MARKET_SELL" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jaxbt.backtest.backtest_from_order_func">
+<span class="sig-prename descclassname"><span class="pre">jaxbt.backtest.</span></span><span class="sig-name descname"><span class="pre">backtest_from_order_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">price</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jaxbt.backtest.OHLC" title="jaxbt.backtest.OHLC"><span class="pre">OHLC</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Array</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jaxbt.backtest.Backtest" title="jaxbt.backtest.Backtest"><span class="pre">Backtest</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">DataFrame</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Array</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jaxbt.backtest.BacktestResult" title="jaxbt.backtest.BacktestResult"><span class="pre">BacktestResult</span></a></span></span><a class="headerlink" href="#jaxbt.backtest.backtest_from_order_func" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jaxbt.backtest.backtest_from_signal">
+<span class="sig-prename descclassname"><span class="pre">jaxbt.backtest.</span></span><span class="sig-name descname"><span class="pre">backtest_from_signal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">price</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#jaxbt.backtest.OHLC" title="jaxbt.backtest.OHLC"><span class="pre">OHLC</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Array</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Series</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Array</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#jaxbt.backtest.BacktestResult" title="jaxbt.backtest.BacktestResult"><span class="pre">BacktestResult</span></a></span></span><a class="headerlink" href="#jaxbt.backtest.backtest_from_signal" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jaxbt.backtest.initialize_array">
+<span class="sig-prename descclassname"><span class="pre">jaxbt.backtest.</span></span><span class="sig-name descname"><span class="pre">initialize_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr_like</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxbt.backtest.initialize_array" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jaxbt.backtest.limit_buy">
+<span class="sig-prename descclassname"><span class="pre">jaxbt.backtest.</span></span><span class="sig-name descname"><span class="pre">limit_buy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prev_position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ohlc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxbt.backtest.limit_buy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jaxbt.backtest.limit_sell">
+<span class="sig-prename descclassname"><span class="pre">jaxbt.backtest.</span></span><span class="sig-name descname"><span class="pre">limit_sell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prev_position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ohlc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxbt.backtest.limit_sell" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jaxbt.backtest.market_buy">
+<span class="sig-prename descclassname"><span class="pre">jaxbt.backtest.</span></span><span class="sig-name descname"><span class="pre">market_buy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prev_position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ohlc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxbt.backtest.market_buy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jaxbt.backtest.market_sell">
+<span class="sig-prename descclassname"><span class="pre">jaxbt.backtest.</span></span><span class="sig-name descname"><span class="pre">market_sell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prev_position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ohlc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxbt.backtest.market_sell" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="jaxbt.backtest.summary">
+<span class="sig-prename descclassname"><span class="pre">jaxbt.backtest.</span></span><span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backtest_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#jaxbt.backtest.BacktestResult" title="jaxbt.backtest.BacktestResult"><span class="pre">BacktestResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jaxbt.backtest.summary" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-jaxbt">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-jaxbt" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, richwomanbtc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
