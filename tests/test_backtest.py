@@ -25,7 +25,7 @@ def ohlc():
 
 @pytest.fixture(scope="module")
 def signal():
-    return jnp.array([0, 1, 0, 1, 0])
+    return jnp.array([0, 1, 0, 1, 0], dtype=jnp.int32)
 
 
 @pytest.fixture(scope="module")
@@ -119,12 +119,12 @@ def test_backtest_from_limit_order_func(ohlc, features):
     result = backtest_from_order_func(ohlc, f, features)
     assert jnp.allclose(
         result.pl,
-        jnp.array([0.0, 1.0, 0, 0.0, 0.0]),
+        jnp.array([0.0, 1.0, 1.0 / 2.0, 1.0 / 3.0, 1.0 / 4.0]),
         rtol=1e-5,
     )
     assert jnp.allclose(
         result.position,
-        jnp.array([0, 1, 0, 0, 0]),
+        jnp.array([0, 1, 1, 1, 1]),
         rtol=1e-5,
     )
 
@@ -170,43 +170,3 @@ def test_backtest_autograd(ohlc, features):
     assert jnp.allclose(result_params, jnp.array([1.0 + 4.0 / 3.0]), rtol=1e-5)
     # loss should be init value (=1.0 + 4.0 / 3.0) * 100 * grad
     assert abs(-loss(result_params) - (1.0 + 4.0 / 3.0) * 4.0 / 3.0) < 1.0e-5
-
-
-def test_backtest_autograd_limit(ohlc, features):
-    @jax.jit
-    def f(param: jax.Array, bt: Backtest, idx: int):
-        s = jax.lax.cond(
-            bt.position[idx] == 0,
-            lambda _: OrderType.LIMIT_BUY,  # if position is 0 limit buy
-            lambda _: OrderType.LIMIT_BUY,  # else limit buy
-            None,
-        )
-        return s, 1, bt.close[idx] + param[0]
-
-    @jax.jit
-    def loss(param: jax.Array):
-        result = backtest_from_order_func(
-            ohlc, lambda bt, idx: f(param, bt, idx), features
-        )
-        return -result.pl.sum()
-
-    grad_fun = jax.grad(loss, argnums=0)
-    print(grad_fun(jnp.array([5.0])))
-    # assert abs(grad_fun(jnp.array([3.0])) - jnp.array([-4.0 / 3.0])) < 1.0e-5
-
-    # @jax.jit
-    # def train(epoch, params, lr=0.01):
-    #     def body_fun(idx, params):
-    #         grads = grad_fun(params)
-    #         params = params - lr * grads
-    #         return params
-
-    #     params = jax.lax.fori_loop(0, epoch, body_fun, params)
-    #     return params
-
-    # init_params = jnp.array([1.0])
-    # result_params = train(100, init_params)
-    # # resulted param should be init value + 100 * grad
-    # assert jnp.allclose(result_params, jnp.array([1.0 + 4.0 / 3.0]), rtol=1e-5)
-    # # loss should be init value (=1.0 + 4.0 / 3.0) * 100 * grad
-    # assert abs(-loss(result_params) - (1.0 + 4.0 / 3.0) * 4.0 / 3.0) < 1.0e-5

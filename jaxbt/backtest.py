@@ -8,7 +8,7 @@ from functools import partial
 from jax.tree_util import register_pytree_node_class
 from enum import IntEnum
 
-DataType = Union[pd.DataFrame, jax.Array, np.ndarray]
+DataType = Union[pd.Series, jax.Array, np.ndarray]
 
 
 class OrderType(IntEnum):
@@ -300,9 +300,23 @@ def backtest_from_signal(
     price: Union[OHLC, pd.DataFrame, np.ndarray, jax.Array],
     signal: DataType,
 ) -> BacktestResult:
+    match signal:
+        case pd.Series():
+            assert signal.dtype == jnp.int32
+            signal = jnp.array(signal.values)
+        case np.ndarray():
+            assert signal.dtype == np.int64
+            signal = jnp.array(signal, dtype=jnp.int32)
+        case jax.Array():
+            assert signal.dtype == jnp.int32
+        case _:
+            raise TypeError(
+                "signal type must be one of pd.Series, np.ndarray or jax.Array"
+            )
+
     @jax.jit
-    def order_func(bt: Backtest, i) -> Tuple[int, float, float]:
-        return int(signal[i]), 1.0, jnp.nan
+    def order_func(bt: Backtest, idx: int) -> Tuple[int, float, float]:
+        return signal[idx], 1.0, jnp.nan  # type: ignore
 
     return backtest_from_order_func(price, order_func)
 
